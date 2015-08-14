@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author cacique
  */
+@WebServlet("/FrontController")
 public class FrontController extends HttpServlet {
     private String command;
     private String username;
@@ -40,7 +42,15 @@ public class FrontController extends HttpServlet {
             if(command.startsWith("login")){
                 
                 if(command.endsWith("login")){
-                    //AÇÕES DE LOGIN jwehfkjdshfkdx
+                    //AÇÕES DE LOGIN
+                    LoginManager Im = new LoginManager(username, password);
+                    
+                    if(Im.authorize()){
+                        RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
+                        rd.forward(request, response);
+                    }else{
+                        out.println("YOU SHALL NOT PASS");
+                    }
            
                 }
                 
