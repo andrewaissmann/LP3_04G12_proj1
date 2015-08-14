@@ -18,23 +18,7 @@ public class LoginManager {
         this.password = password;
     }
     
-    public boolean authorize(){
+    public static boolean authorize(String username, String password){
         return ("waissmann".equals(username) && "1234".equals(password));
     }
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
 }

@@ -43,9 +43,8 @@ public class FrontController extends HttpServlet {
                 
                 if(command.endsWith("login")){
                     //AÇÕES DE LOGIN
-                    LoginManager Im = new LoginManager(username, password);
-                    
-                    if(Im.authorize()){
+                                        
+                    if(LoginManager.authorize(username, password)){
                         RequestDispatcher rd = request.getRequestDispatcher("/home.jsp");
                         rd.forward(request, response);
                     }else{
