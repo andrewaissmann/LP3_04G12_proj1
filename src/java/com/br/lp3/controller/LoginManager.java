@@ -11,13 +11,6 @@ package com.br.lp3.controller;
  */
 public class LoginManager {
     
-    private String username, password;
-
-    public LoginManager(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-    
     public static boolean authorize(String username, String password){
         return ("waissmann".equals(username) && "1234".equals(password));
     }
